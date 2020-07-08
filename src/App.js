@@ -4,6 +4,7 @@ import { Grid, TextField, Paper } from "@material-ui/core";
 import { Route } from "react-router-dom";
 import SearchBarContainer from "./components/SearchBar/SearchBarContainer";
 import VideosFeedContainer from "./components/VideosFeed/VideosFeedContainer";
+import VideoDisplay from "./components/VideoDisplay/VideoDisplay";
 
 function App() {
   return (
@@ -21,13 +22,7 @@ function App() {
             </Grid>
           )}
         />
-        {/* <Grid container spacing={2} xs={12}>
-          <Paper style={{ height: "100px", width: "100%" }} elevation={5}>
-            <TextField value="TEST" />
-          </Paper>
-        </Grid> */}
-
-        {/* <Route exact to="/" render={() => } /> */}
+        <Route path="/video/:videoId" render={() => <VideoDisplay />} />
       </Grid>
     </div>
   );

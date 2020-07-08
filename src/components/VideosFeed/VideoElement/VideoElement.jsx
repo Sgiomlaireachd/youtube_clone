@@ -1,7 +1,7 @@
 import React from "react";
 import Typography from "@material-ui/core/Typography";
 import { Paper, Grid } from "@material-ui/core";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default ({
   id,

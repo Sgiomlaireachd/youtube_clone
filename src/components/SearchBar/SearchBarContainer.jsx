@@ -3,33 +3,36 @@ import SearchBar from "./SearchBar";
 import { connect } from "react-redux";
 import { setSearchQuery } from "../../redux/searchReducer";
 import { getVideosFeed } from "../../redux/videosReducer";
+import { compose } from "redux";
+import { withRouter } from "react-router-dom";
 
-class SearchBarContainer extends React.Component {
-  onInputChange = (e) => {
+const SearchBarContainer = (props) => {
+  const onInputChange = (e) => {
     e.preventDefault();
-    this.props.setSearchQuery(e.target.value);
+    props.setSearchQuery(e.target.value);
   };
 
-  onFormSubmit = async (e) => {
+  const onFormSubmit = async (e) => {
     e.preventDefault();
-    this.props.getVideosFeed(this.props.searchQuery);
+    props.getVideosFeed(props.searchQuery);
+
+    props.history.push("/");
   };
 
-  render() {
-    return (
-      <SearchBar
-        onInputChange={this.onInputChange}
-        onFormSubmit={this.onFormSubmit}
-        searchQuery={this.props.searchQuery}
-      />
-    );
-  }
-}
+  return (
+    <SearchBar
+      onInputChange={onInputChange}
+      onFormSubmit={onFormSubmit}
+      searchQuery={props.searchQuery}
+    />
+  );
+};
 
 const mapStateToProps = (state) => ({
   searchQuery: state.search.searchQuery,
 });
 
-export default connect(mapStateToProps, { setSearchQuery, getVideosFeed })(
-  SearchBarContainer
-);
+export default compose(
+  withRouter,
+  connect(mapStateToProps, { setSearchQuery, getVideosFeed })
+)(SearchBarContainer);
