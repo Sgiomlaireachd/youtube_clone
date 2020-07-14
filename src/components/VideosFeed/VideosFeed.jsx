@@ -3,7 +3,6 @@ import VideoElement from "./VideoElement/VideoElement";
 
 export default ({ isFetchingVideos, videos }) => {
   if (isFetchingVideos) return <h1>Loading...</h1>;
-  console.log(videos);
 
   const videoElements = videos.map(
     (

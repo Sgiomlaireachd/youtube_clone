@@ -14,7 +14,7 @@ const RelatedVideosContainer = ({
   useEffect(() => {
     const videoId = match.params.videoId;
     getRelatedVideos(videoId);
-  }, []);
+  }, [match]);
 
   if (isFetchingRelated) return <h1>Loading...</h1>;
 

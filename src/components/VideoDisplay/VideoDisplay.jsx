@@ -17,7 +17,7 @@ const VideoDisplay = ({ match }) => {
           frameBorder="none"
         ></iframe>
       </Grid>
-      <Grid item xs={3} style={{ border: "1px solid red" }}>
+      <Grid item xs={3}>
         <RelatedVideosContainer />
       </Grid>
     </Grid>
